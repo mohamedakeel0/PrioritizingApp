@@ -1,18 +1,16 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutters/modules/Home/home.dart';
-
-import 'package:flutters/shared/componnents0/components.dart';
+import 'package:flutters/shared/componnents/components.dart';
 import 'package:flutters/shared/network/local/cache_helper.dart';
 import 'package:flutters/shared/style/colors.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
 class Onboarding extends StatefulWidget {
   @override
   State<Onboarding> createState() => _OnboardingState();
 }
 
 class _OnboardingState extends State<Onboarding> {
-
   var boardController = PageController();
   List<BoardingModel> boarding = [
     BoardingModel(
@@ -22,19 +20,20 @@ class _OnboardingState extends State<Onboarding> {
     BoardingModel(
         image: 'image/image1.jpg',
         title: 'writing  table',
-        body: 'Concentrate on your goal and don`t think about personal matters'),
+        body:
+            'Concentrate on your goal and don`t think about personal matters'),
     BoardingModel(
         image: 'image/image2.jpg',
         title: 'Focus on one task at a time',
         body: 'Because multitasking kills focus'),
   ];
   bool islast = false;
+
   void submit() {
     CacheHelper.saveData(
       key: 'onBoarding',
       value: true,
-    ).then((value)
-    {
+    ).then((value) {
       if (value) {
         navigateAndFinish(
           context,
@@ -43,21 +42,28 @@ class _OnboardingState extends State<Onboarding> {
       }
     });
   }
+
   @override
   Widget build(BuildContext context) {
-    double height=MediaQuery.of(context).size.height;
-    double width=MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     print(height);
     print(width);
     return Scaffold(
       appBar: AppBar(
-        actions: [TextButton(onPressed: (){navigateTo(context,HomePage());
-
-        }, child: Text('skip',style: TextStyle(fontSize: 20),))],
-
+        actions: [
+          TextButton(
+              onPressed: () {
+                navigateTo(context, HomePage());
+              },
+              child: Text(
+                'skip',
+                style: TextStyle(fontSize: 20),
+              ))
+        ],
       ),
       body: Padding(
-        padding:  EdgeInsets.all(height/27.5),
+        padding: EdgeInsets.all(height / 27.5),
         child: Column(
           children: [
             Expanded(
@@ -75,13 +81,13 @@ class _OnboardingState extends State<Onboarding> {
                 },
                 physics: BouncingScrollPhysics(),
                 controller: boardController,
-                itemBuilder: (context, index) =>
-                    buildBoardingItem(boarding[index],height/27.5,height/55.03),
+                itemBuilder: (context, index) => buildBoardingItem(
+                    boarding[index], height / 27.5, height / 55.03),
                 itemCount: boarding.length,
               ),
             ),
             SizedBox(
-              height: height/16.5,
+              height: height / 16.5,
             ),
             Row(
               children: [
@@ -100,8 +106,9 @@ class _OnboardingState extends State<Onboarding> {
                 Spacer(),
                 FloatingActionButton(
                   onPressed: () {
-                    if(islast){submit();}
-                    else {
+                    if (islast) {
+                      submit();
+                    } else {
                       boardController.nextPage(
                           duration: Duration(milliseconds: 750),
                           curve: Curves.fastLinearToSlowEaseIn);
@@ -117,32 +124,32 @@ class _OnboardingState extends State<Onboarding> {
     );
   }
 
-  Widget buildBoardingItem(BoardingModel model,height,height15) => Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Expanded(
-          child: Image(
+  Widget buildBoardingItem(BoardingModel model, height, height15) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+              child: Image(
             image: AssetImage('${model.image}'),
           )),
-      SizedBox(
-        height: height,
-      ),
-      Text(
-        '${model.title}',
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-      ),
-      SizedBox(
-        height: height15,
-      ),
-      Text(
-        '${model.body}',
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-      ),
-      SizedBox(
-        height: height15,
-      ),
-    ],
-  );
+          SizedBox(
+            height: height,
+          ),
+          Text(
+            '${model.title}',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+          ),
+          SizedBox(
+            height: height15,
+          ),
+          Text(
+            '${model.body}',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+          ),
+          SizedBox(
+            height: height15,
+          ),
+        ],
+      );
 }
 
 class BoardingModel {

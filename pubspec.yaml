@@ -101,7 +101,7 @@ flutter:
   fonts:
     - family: Jannah
       fonts:
-        - asset: assets/fonts/jannah.ttf
+        - asset: fonts/jannah.ttf
           weight: 700
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic

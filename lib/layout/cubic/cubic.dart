@@ -5,7 +5,7 @@ import 'package:bloc/bloc.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutters/layout/cubic/states.dart';
-import 'package:flutters/models/modelperson.dart';
+import 'package:flutters/modelperson.dart';
 
 
 import 'package:flutters/modules/YourDreamInthisyear/Dream.dart';
@@ -40,7 +40,7 @@ List persons=[];
         High.add(element);
       }else if (element.priority==1){
         Medium.add(element);
-      }else{
+      }else if(element.priority==0) {
         low.add(element);
       }
     });
@@ -58,6 +58,9 @@ List persons=[];
     final personsBox=  Hive.box('Persons2');
     persons.remove(persons[index]);
     personsBox.delete(personId);
+    low.clear();
+    Medium.clear();
+    High.clear();
 
     getFromHive();
     emit(DeleteValueOnhiveState());

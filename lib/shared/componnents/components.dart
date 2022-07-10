@@ -1,17 +1,15 @@
-
-
-
 import 'dart:math';
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutters/layout/cubic/cubic.dart';
-import 'package:flutters/models/modelperson.dart';
-
-
-
-
+import 'package:flutters/modelperson.dart';
+import 'package:flutters/modules/Prioritizing/Prioritizing.dart';
+import 'package:flutters/modules/Rules/Rules.dart';
+import 'package:flutters/modules/TheTimeofConcentration/TimetoFocus.dart';
+import 'package:flutters/modules/YourDreamInthisyear/Dream.dart';
+import 'package:flutters/modules/keepingList/List.dart';
+import 'package:flutters/shared/style/colors.dart';
 Widget myDivider() => Padding(
       padding: const EdgeInsetsDirectional.only(
         start: 20.0,
@@ -22,7 +20,6 @@ Widget myDivider() => Padding(
         color: Colors.grey[300],
       ),
     );
-
 Widget defaultFormField({
   required TextEditingController? controller,
   required TextInputType? type,
@@ -88,7 +85,6 @@ void navigateAndFinish(context, widget) => Navigator.pushAndRemoveUntil(
   ),
       ( route ){return false;},
 );
-
 Widget defaultButton({
   double width = double.infinity,
   double height = 50.0,
@@ -128,8 +124,6 @@ bool ColorTextblue=true,
         color: background,
       ),
     );
-
-
 Widget buildItemperson(height,width,context,numberpriority,typepriority,sumpriority)=>Padding(
   padding: EdgeInsets.only(top: height / 82.545),
   child: Card(
@@ -286,6 +280,52 @@ Widget buildItemperson(height,width,context,numberpriority,typepriority,sumprior
     ),
   ),
 );
+Widget buildHome(context,height,width,)=>Scaffold(
+  body: SingleChildScrollView(
+      child: Column(children: [
+        SizedBox(height: height / 10.25),
+        Text(
+          'Top Time Management Skills',
+          style: TextStyle(
+              color: Colors.blueGrey,
+              fontSize: 27,
+              fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: height / 16.5),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            buildItemhome(PrioritizingScreen(), context, height, width,
+                'Prioritizing', 'image/prioritisations.jpg'),
+            SizedBox(
+              width: width / 15.71,
+            ),
+            buildItemhome(YourDreams(), context, height, width,
+                'Your dreams for this year ', 'image/dream.jpg'),
+          ],
+        ),
+        SizedBox(
+          height: height / 33.018,
+        ),
+        buildItemhome(ListDay(), context, height, width,
+            'Keeping a To-Do List', 'image/list.jpg'),
+        SizedBox(
+          height: height / 33.018,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            buildItemhome(Rules(), context, height, width, 'The Rules ',
+                'image/rules.jpg'),
+            SizedBox(
+              width: width / 15.71,
+            ),
+            buildItemhome(CountdownPage(), context, height, width,
+                'The time of Concentration', 'image/time.jpg'),
+          ],
+        ),
+      ])),
+);
 Widget buildItemhome(Widget widget,context,height,width,text,image)=>InkWell(
   onTap: () {
     navigateTo(context, widget);
@@ -308,7 +348,7 @@ Widget buildItemhome(Widget widget,context,height,width,text,image)=>InkWell(
     ),
   ),
 );
-Widget buildItemDream(context,height,width,)=>Container(
+Widget buildItemDream(context,height,width,)=>Container(color: Colors.white,
   child: ListView.separated(
     shrinkWrap: true,
     physics: NeverScrollableScrollPhysics(),
@@ -386,101 +426,134 @@ Widget buildItemDream(context,height,width,)=>Container(
     itemCount: ActivateCubic.get(context).persons.length,
   ),
 );
-
 Widget buildDream(context,height,width,textController,persons)=>Scaffold(
-  backgroundColor: Colors.white,
-  body: Padding(
-    padding:  EdgeInsets.only(top: height/13.76, right: width/39.3, left:  width/39.3,),
-    child: Column(children: [
-      Card(clipBehavior: Clip.antiAliasWithSaveLayer,elevation: 5,color:Colors.grey[100],
-        child: Row(crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Icon(
-              Icons.star_border_purple500_sharp,
-              size: 25,
-              color: Colors.blueGrey,
-            ),SizedBox(width: width/78.544,),
-            Expanded(
-              child: AutoSizeText(
-                'write what want do you want to achive in the future :',
-                overflow: TextOverflow.ellipsis,maxLines: 4,
-                style: Theme.of(context)
-                    .textTheme
-                    .headline4!
-                    .copyWith(color: Colors.black, fontSize: 25,fontWeight: FontWeight.w500),
+
+
+  body: Column(children: [
+    Container(height: height/3.57,
+      child: Stack(children: [
+        Container(height:200,child: Padding(
+          padding:  EdgeInsets.only(left: height/44.272,top:  height/18.509,right: height/44.272,),
+          child: Column( crossAxisAlignment: CrossAxisAlignment.start,children: [
+            Card(clipBehavior: Clip.antiAliasWithSaveLayer,elevation: 5,color:Colors.grey[100],
+              child: Row(crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Icon(
+                    Icons.star_border_purple500_sharp,
+                    size: 25,
+                    color: Colors.blueGrey,
+                  ),SizedBox(width: width/78.544,),
+                  Expanded(
+                    child: AutoSizeText(
+                      'write what  you want to achive in the future :',
+                      overflow: TextOverflow.ellipsis,maxLines: 4,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline4!
+                          .copyWith(color: Colors.black, fontSize: 25,fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                ],
               ),
             ),
-          ],
+
+          ],),
         ),
-      ),
-      SizedBox(height: height/27.5,),
-      Card(clipBehavior: Clip.antiAliasWithSaveLayer,elevation: 15,
-        child: Padding(
-          padding:  EdgeInsets.only(top: height/165.09),
-          child: defaultFormField(isborder: false,
+          decoration: BoxDecoration(
+              color:defaultcolor,
+              borderRadius: new BorderRadius.vertical(
+                  bottom: Radius.elliptical(150, 30)
+              )),),
+        Container(),
+        Positioned( top: 150.0,
+          left: 15.0,
+          right: 15.0,
+          child: Card(clipBehavior: Clip.antiAliasWithSaveLayer,elevation: 5,
+            child: Padding(
+              padding:  EdgeInsets.only(top: height/164.09),
+              child: defaultFormField(isborder: false,
 
-              controller: textController,
-              type: TextInputType.emailAddress,onSubmit: (value){
-                ModelPerson person = ModelPerson(id: Random().nextInt(60000000),
-                    text: 'asdasdasd',
-                    time: 'asdas',
-                    valuelow: false,
-                    priority: 3,
-                    valuemeduim: false,
-                    textfuture:value,
-                    valueHigh: false);
+                  controller: textController,
+                  type: TextInputType.emailAddress,onSubmit: (value){
+                    ModelPerson person = ModelPerson(id: Random().nextInt(60000000),
+                        text: 'asdasdasd',
+                        time: 'asdas',
+                        valuelow: false,
+                        priority: 3,
+                        valuemeduim: false,
+                        textfuture:value,
+                        valueHigh: false);
 
-                persons.put(person.id, person);
-                ActivateCubic.get(context).getFromHive();
+                    persons.put(person.id, person);
+                    ActivateCubic.get(context).getFromHive();
 
-              },
-              validate: (value) {
-                if (value.isEmpty) {
-                  return 'please enter your priority';
-                }
-              },
-              label: 'Enter Your dreams for this year',
-              prefix: Icons.list),
-        ),
-      ),
-      SizedBox(height: height/13.76,),
-      Card(  clipBehavior: Clip.antiAliasWithSaveLayer,
-        margin: EdgeInsets.symmetric(horizontal: height/103.1),
-        elevation: 15,
-        color: Colors.white,
-        child: Column(children: [
-          SizedBox(height: height/41.27,),
-          AutoSizeText(
-            'Your dreams for this year ',
-            maxLines: 2,
-            style: Theme.of(context)
-                .textTheme
-                .headline4!
-                .copyWith(color: Colors.black87, fontSize: 25),
-          ),SizedBox(height: height/82.5,),
-          Padding(
-            padding:  EdgeInsets.only(right: width/78.5),
-            child: Row(mainAxisAlignment: MainAxisAlignment.end,children: [
-
-
-            ],
-
+                  },
+                  validate: (value) {
+                    if (value.isEmpty) {
+                      return 'please enter your priority';
+                    }
+                  },
+                  label: 'Enter Your dreams for this year',
+                  prefix: Icons.list),
             ),
           ),
-
-          ActivateCubic.get(context).persons.isNotEmpty? buildItemDream(context,height,width):Container(),
-
-        ],
-
         ),
-      )
+      ],
+
+      ),
+    ),
+    Padding(
+      padding:  EdgeInsets.only( top:height/59.27,right: width/39.3, left:  width/39.3,),
+      child: Card(  clipBehavior: Clip.antiAliasWithSaveLayer,
+        margin: EdgeInsets.symmetric(horizontal: height/103.1),
+        elevation: 10,
+        color: Colors.white,
+        child: Container(
+          child: Column(children: [
+            Padding(
+              padding: EdgeInsets.only(
+                  left: width / 30.21,
+                  top: height / 82.545,
+                  right: width / 30.21),
+              child: Container(height: 40,
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                decoration: BoxDecoration(
+                  borderRadius:
+                  BorderRadius.circular(height / 82.545),
+                  color: Colors.grey[100],
+                ),
+                child: Row(mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(height: height/41.27,),
+                    AutoSizeText(
+                      'Your dreams for this year ',
+                      maxLines: 2,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline4!
+                          .copyWith(color: Colors.black87, fontSize: 25),
+                    ),SizedBox(height: height/82.5,),
+                  ],
+                ),
+              ),
+            ),
+
+
+
+            ActivateCubic.get(context).persons.isNotEmpty? buildItemDream(context,height,width):Container(),
+
+          ],
+
+          ),
+        ),
+      ),
+    )
 
 
 
 
-    ],),
-  ),);
-Widget buildToDolist(cubic,context,height,width,)=>Scaffold(
+  ],),);
+Widget buildToDolist(cubic,context,height,width,)=>Scaffold(backgroundColor:defaultcolor ,
   appBar: AppBar(
     leading: Icon(Icons.view_headline_sharp),
     backgroundColor: Colors.grey[100],
@@ -514,5 +587,72 @@ Widget buildToDolist(cubic,context,height,width,)=>Scaffold(
 
       ],
     ),
+  ),
+);
+Widget buildRules(context,height,width,titles)=>SingleChildScrollView(
+  child: Column(children: [
+    Container(height: height/6.34,
+      child: Stack(children: [
+        Container(height:height/8.25,width:width,
+
+          decoration: BoxDecoration(
+              color:defaultcolor,
+              borderRadius: new BorderRadius.vertical(
+                  bottom: Radius.elliptical(150, 30)
+              )),),
+        Container(),
+        Positioned( top: height/16.509,
+          left: width/26.18,
+          right: width/26.18,
+          child:    Card(clipBehavior: Clip.antiAliasWithSaveLayer,elevation: 5,color: Colors.white,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: AutoSizeText(
+                'If you follow these tips for 30 days you can be more successful :',
+                maxLines: 2,
+                style: Theme.of(context)
+                    .textTheme
+                    .headline4!
+                    .copyWith(color: Colors.black, fontSize: 25,fontWeight: FontWeight.w500),
+              ),
+            ),
+          ),
+        ),
+      ],
+
+      ),
+    ),
+
+
+    buildItemRules(context,height,width,titles),
+  ],),
+);
+Widget buildItemRules(context,height,width,titles)=>  Padding(
+  padding:  EdgeInsets.only(top: height/103.03,right: width/19.27,left: width/19.27),
+  child: Container(
+
+    child: ListView.separated(
+        shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
+        itemBuilder: (context, index) {
+          return Row(children: [
+            Icon(
+              Icons.star_border_purple500_sharp,
+              size: 25,
+              color: Colors.blueGrey,
+            ),
+            SizedBox(width: width/78.54,),
+            Expanded(
+              child: AutoSizeText(
+                titles[index], overflow: TextOverflow.ellipsis,maxLines: 4,
+
+                style: Theme.of(context)
+                    .textTheme
+                    .headline4!
+                    .copyWith(color: Colors.black87, fontSize: 20),
+              ),
+            ),
+          ],);
+        }, separatorBuilder: (context, index) =>Container(height: height/55.03,) , itemCount: titles.length),
   ),
 );
