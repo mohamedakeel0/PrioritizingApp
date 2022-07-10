@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutters/layout/cubic/cubic.dart';
-import 'package:flutters/models/modelperson.dart';
+import 'package:flutters/modelperson.dart';
 import 'package:flutters/modules/onboarding/onboarding.dart';
 
 import 'package:flutters/shared/bloc_observer/blocObserver.dart';

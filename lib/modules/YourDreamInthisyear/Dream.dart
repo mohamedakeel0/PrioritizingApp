@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutters/layout/cubic/cubic.dart';
 import 'package:flutters/layout/cubic/states.dart';
-import 'package:flutters/models/modelperson.dart';
+import 'package:flutters/modelperson.dart';
 import 'package:flutters/modules/keepingList/List.dart';
-import 'package:flutters/shared/componnents0/components.dart';
+import 'package:flutters/shared/componnents/components.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 

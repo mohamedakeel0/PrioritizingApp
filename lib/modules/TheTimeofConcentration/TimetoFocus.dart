@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 import 'package:flutters/modules/TheTimeofConcentration/round-button.dart';
+import 'package:flutters/shared/style/colors.dart';
 
 
 class CountdownPage extends StatefulWidget {
@@ -66,115 +67,130 @@ class _CountdownPageState extends State<CountdownPage>
 
   @override
   Widget build(BuildContext context) {
-    int maxheight=MediaQuery.of(context).size.height.toInt() ;
-    int maxwidth=MediaQuery.of(context).size.width.toInt() ;
+
     double height=MediaQuery.of(context).size.height;
     double width=MediaQuery.of(context).size.width;
     return Scaffold(
 
-      body: Padding(
-        padding:  EdgeInsets.only(top: height/13.76,right: width/82.545,left: width/82.545),
-        child: Column(
-          children: [
-            SizedBox(height: height/55.03,),
-            Card(clipBehavior: Clip.antiAliasWithSaveLayer,elevation: 10,color:Colors.grey[100],
-              child: Padding(
-                padding:  EdgeInsets.all(height/103.1),
-                child: AutoSizeText(
-                  'In this hour, you must study hard when it finish take 15. minute as a rest :',
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline5!
-                      .copyWith(color: Colors.black, fontSize: 25,fontWeight: FontWeight.w500),
-                ),
-              ),
-            ),
-            Expanded(
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  SizedBox(
-                    width: width/1.31,
-                    height: height/2.75,
-                    child: CircularProgressIndicator(
-                      backgroundColor: Colors.grey.shade300,
-                      value: progress,
-                      strokeWidth: 6,
+      body: Column(
+        children: [
+
+          Container(height: 220,
+            child: Stack(children: [
+              Container(height:170,width:width,
+
+                decoration: BoxDecoration(
+                    color:defaultcolor,
+                    borderRadius: new BorderRadius.vertical(
+                        bottom: Radius.elliptical(150, 30)
+                    )),),
+              Container(),
+              Positioned( top: 100,
+                left: width/26.18,
+                right: width/26.18,
+                child:    Card(clipBehavior: Clip.antiAliasWithSaveLayer,elevation: 5,color: Colors.white,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: AutoSizeText(
+                      'Study for 1 hour then take a 15 minute rest :',
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline5!
+                          .copyWith(color: Colors.black, fontSize: 25,fontWeight: FontWeight.w500),
                     ),
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      if (controller.isDismissed) {
-                        showModalBottomSheet(
-                          context: context,
-                          builder: (context) => Container(
-                            height: height/2.75,
-                            child: CupertinoTimerPicker(
-                              initialTimerDuration: controller.duration!,
-                              onTimerDurationChanged: (time) {
-                                setState(() {
-                                  controller.duration = time;
-                                });
-                              },
-                            ),
+                ),
+              ),
+            ],
+
+            ),
+          ),
+          Padding(
+            padding:  EdgeInsets.only(top: height/10.31),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                SizedBox(
+                  width: width/1.31,
+                  height: height/2.75,
+                  child: CircularProgressIndicator(
+                    backgroundColor: Colors.grey.shade300,
+                    value: progress,
+                    strokeWidth: 6,
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    if (controller.isDismissed) {
+                      showModalBottomSheet(
+                        context: context,
+                        builder: (context) => Container(
+                          height: height/2.75,
+                          child: CupertinoTimerPicker(
+                            initialTimerDuration: controller.duration!,
+                            onTimerDurationChanged: (time) {
+                              setState(() {
+                                controller.duration = time;
+                              });
+                            },
                           ),
-                        );
-                      }
-                    },
-                    child: AnimatedBuilder(
-                      animation: controller,
-                      builder: (context, child) => Text(
-                        countText,
-                        style: TextStyle(
-                          fontSize: 60,
-                          fontWeight: FontWeight.bold,
                         ),
+                      );
+                    }
+                  },
+                  child: AnimatedBuilder(
+                    animation: controller,
+                    builder: (context, child) => Text(
+                      countText,
+                      style: TextStyle(
+                        fontSize: 60,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            Padding(
-              padding:  EdgeInsets.symmetric(horizontal: width/39.3, vertical: height/41.27),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      if (controller.isAnimating) {
-                        controller.stop();
-                        setState(() {
-                          isPlaying = false;
-                        });
-                      } else {
-                        controller.reverse(
-                            from: controller.value == 0 ? 1.0 : controller.value);
-                        setState(() {
-                          isPlaying = true;
-                        });
-                      }
-                    },
-                    child: RoundButton(
-                      icon: isPlaying == true ? Icons.pause : Icons.play_arrow,
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      controller.reset();
+          ),Spacer(),
+          Padding(
+            padding:  EdgeInsets.symmetric(horizontal: width/39.3, vertical: height/41.27),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    if (controller.isAnimating) {
+                      controller.stop();
                       setState(() {
                         isPlaying = false;
                       });
-                    },
-                    child: RoundButton(
-                      icon: Icons.stop,
-                    ),
+                    } else {
+                      controller.reverse(
+                          from: controller.value == 0 ? 1.0 : controller.value);
+                      setState(() {
+                        isPlaying = true;
+                      });
+                    }
+                  },
+                  child: RoundButton(
+                    icon: isPlaying == true ? Icons.pause : Icons.play_arrow,
                   ),
-                ],
-              ),
-            )
-          ],
-        ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    controller.reset();
+                    setState(() {
+                      isPlaying = false;
+                    });
+                  },
+                  child: RoundButton(
+                    icon: Icons.stop,
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
