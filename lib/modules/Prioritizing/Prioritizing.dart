@@ -100,7 +100,7 @@ class PrioritizingScreen extends StatelessWidget {
                               controller: textController,
                               type: TextInputType.emailAddress,
                               validate: (value) {
-                                if (value!.isEmpty) {
+                                if (value!.isEmpty ) {
                                   return 'please enter your priority';
                                 }
                               },
@@ -112,7 +112,7 @@ class PrioritizingScreen extends StatelessWidget {
                           TextFormField(
                             readOnly: true,
                             validator: (value) {
-                              if (value!.isEmpty) {
+                              if (value!.isEmpty && value.length<4) {
                                 return 'please enter your time';
                               }
                             },
