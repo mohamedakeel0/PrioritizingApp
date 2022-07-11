@@ -14,6 +14,7 @@ class Rules extends StatelessWidget {
       body: buildRules(context,height,width,titles));
   }
   List<String> titles = [
+    'Be closer to allah .',
     'Sleep 8 hours .',
     'Drink more water .',
     'Get exposed to the sun .',
@@ -26,5 +27,6 @@ class Rules extends StatelessWidget {
     'Always complete what you started  .',
     'Work with intelligence ، Not with effort .',
     'Learn  to say no .',
+
   ];
 }

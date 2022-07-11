@@ -45,7 +45,7 @@ void main() async{
 
 
     final Persons= await Hive.openBox('Persons2');
-
+Hive.box('Persons2').clear();
 
   runApp(MyApp(startWidget: widget,));
 

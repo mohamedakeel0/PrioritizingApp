@@ -576,6 +576,7 @@ Widget buildDream(context, height, width, textController, persons, formkey) =>
 
                                 persons.put(person.id, person);
                                 ActivateCubic.get(context).getFromHive();
+                                textController.text='';
                               }
                             },
                             validate: (value) {

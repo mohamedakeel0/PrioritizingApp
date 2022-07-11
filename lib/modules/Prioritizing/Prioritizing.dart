@@ -224,6 +224,8 @@ class PrioritizingScreen extends StatelessWidget {
 
                                       persons.put(person.id, person);
                                       print(person.priority);
+                                      textController.text='';
+                                      timeController.text='';
                                     }
                                   },
                                   text: 'Send',
