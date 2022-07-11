@@ -13,7 +13,7 @@ import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class YourDreams extends StatelessWidget {
-
+  GlobalKey<FormState> formkey = GlobalKey<FormState>();
   var textController = TextEditingController();
 
 
@@ -28,7 +28,7 @@ class YourDreams extends StatelessWidget {
             double height=MediaQuery.of(context).size.height;
             double width=MediaQuery.of(context).size.width;
 
-            return buildDream(context,height,width,textController,persons);
+            return buildDream(context,height,width,textController,persons,formkey);
           }),
     );
   }
