@@ -245,28 +245,5 @@ class PrioritizingScreen extends StatelessWidget {
     );
   }
 
-  List<int> low = [];
-  int numberlow = 0;
-  List<int> Medium = [];
-  int numberMedium = 1;
-  List<int> High = [];
-  int numberHigh = 0;
 
-  int? choosenumberplority(int numberplority) {
-    switch (numberplority) {
-      case 0:
-        numberlow = numberlow + 1;
-        low.add(numberlow);
-        break;
-      case 1:
-        numberMedium = numberMedium + 1;
-        Medium.add(numberMedium);
-        break;
-      case 2:
-        numberHigh = numberHigh + 1;
-        High.add(numberHigh);
-        break;
-    }
-    return 0;
-  }
 }
