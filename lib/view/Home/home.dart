@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutters/layout/cubic/cubic.dart';
-import 'package:flutters/layout/cubic/states.dart';
+import 'package:flutters/bloc/cubic.dart';
+import 'package:flutters/bloc/states.dart';
+
 import 'package:flutters/shared/componnents/components.dart';
 import 'package:flutters/shared/network/local/cache_helper.dart';
 class HomePage extends StatelessWidget {

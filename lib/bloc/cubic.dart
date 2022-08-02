@@ -4,12 +4,12 @@ import 'dart:math';
 import 'package:bloc/bloc.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutters/layout/cubic/states.dart';
+import 'package:flutters/bloc/states.dart';
+
 import 'package:flutters/modelperson.dart';
 
 
-import 'package:flutters/modules/YourDreamInthisyear/Dream.dart';
-import 'package:flutters/modules/keepingList/List.dart';
+
 import 'package:flutters/shared/network/local/cache_helper.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 

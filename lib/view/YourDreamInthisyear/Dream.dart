@@ -4,10 +4,11 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutters/layout/cubic/cubic.dart';
-import 'package:flutters/layout/cubic/states.dart';
+import 'package:flutters/bloc/cubic.dart';
+import 'package:flutters/bloc/states.dart';
+
 import 'package:flutters/modelperson.dart';
-import 'package:flutters/modules/keepingList/List.dart';
+
 import 'package:flutters/shared/componnents/components.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';

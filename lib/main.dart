@@ -3,15 +3,17 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutters/bloc/cubic.dart';
+import 'package:flutters/bloc/states.dart';
 
-import 'package:flutters/layout/cubic/cubic.dart';
 import 'package:flutters/modelperson.dart';
-import 'package:flutters/modules/onboarding/onboarding.dart';
 
-import 'package:flutters/shared/bloc_observer/blocObserver.dart';
+
 import 'package:flutters/shared/network/local/cache_helper.dart';
 
 import 'package:flutters/shared/style/Theme.dart';
+import 'package:flutters/view/Home/home.dart';
+import 'package:flutters/view/onboarding/onboarding.dart';
 
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
@@ -19,8 +21,9 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 
-import 'layout/cubic/states.dart';
-import 'modules/Home/home.dart';
+import 'bloc/bloc_observer/blocObserver.dart';
+
+
 
 
 
@@ -69,7 +72,7 @@ class MyApp extends StatelessWidget {
     title: 'Flutter Demo',
     debugShowCheckedModeBanner: false,
     theme: lightTheme,
-    home:startWidget,
+    home:Onboarding(),
        );
     }
     ),);
