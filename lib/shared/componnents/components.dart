@@ -2,14 +2,15 @@ import 'dart:math';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
-import 'package:flutters/layout/cubic/cubic.dart';
+import 'package:flutters/bloc/cubic.dart';
 import 'package:flutters/modelperson.dart';
-import 'package:flutters/modules/Prioritizing/Prioritizing.dart';
-import 'package:flutters/modules/Rules/Rules.dart';
-import 'package:flutters/modules/TheTimeofConcentration/TimetoFocus.dart';
-import 'package:flutters/modules/YourDreamInthisyear/Dream.dart';
-import 'package:flutters/modules/keepingList/List.dart';
+
 import 'package:flutters/shared/style/colors.dart';
+import 'package:flutters/view/Prioritizing/Prioritizing.dart';
+import 'package:flutters/view/Rules/Rules.dart';
+import 'package:flutters/view/TheTimeofConcentration/TimetoFocus.dart';
+import 'package:flutters/view/YourDreamInthisyear/Dream.dart';
+import 'package:flutters/view/keepingList/List.dart';
 
 Widget myDivider() => Padding(
       padding: const EdgeInsetsDirectional.only(

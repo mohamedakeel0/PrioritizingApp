@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutters/modules/Home/home.dart';
+
 import 'package:flutters/shared/componnents/components.dart';
 import 'package:flutters/shared/network/local/cache_helper.dart';
 import 'package:flutters/shared/style/colors.dart';
+import 'package:flutters/view/Home/home.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Onboarding extends StatefulWidget {
