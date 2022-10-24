@@ -36,6 +36,7 @@ class _OnboardingState extends State<Onboarding> {
       value: true,
     ).then((value) {
       if (value) {
+
         navigateAndFinish(
           context,
           HomePage(),
