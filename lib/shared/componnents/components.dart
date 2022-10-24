@@ -568,7 +568,7 @@ Widget buildDream(context, height, width, textController, persons, formkey) =>
                                 ModelPerson person = ModelPerson(
                                     id: Random().nextInt(60000000),
                                     text: 'asdasdasd',
-                                    time: 'asdas',
+                                    time:'${DateTime.now().hour} : ${DateTime.now().minute}',
                                     valuelow: false,
                                     priority: 3,
                                     valuemeduim: false,
