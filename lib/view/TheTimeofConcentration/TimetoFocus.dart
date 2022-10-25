@@ -107,7 +107,7 @@ class _CountdownPageState extends State<CountdownPage>
             ),
           ),
           Padding(
-            padding:  EdgeInsets.only(top: height/10.31),
+            padding:  EdgeInsets.only(top: 46),
             child: Stack(
               alignment: Alignment.center,
               children: [

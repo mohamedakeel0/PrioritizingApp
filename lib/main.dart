@@ -49,8 +49,11 @@ void main() async{
 
     final Persons= await Hive.openBox('Persons2');
 Hive.box('Persons2').clear();
+    runApp(
+    MyApp(startWidget: widget,), // Wrap your app
 
-  runApp(MyApp(startWidget: widget,));
+    );
+
 
 }
 
@@ -68,6 +71,7 @@ class MyApp extends StatelessWidget {
       child:  BlocConsumer<ActivateCubic, ActivateStates>(
     listener: (context, state) {},
     builder: (context, state) {
+
        return MaterialApp(
     title: 'Flutter Demo',
     debugShowCheckedModeBanner: false,

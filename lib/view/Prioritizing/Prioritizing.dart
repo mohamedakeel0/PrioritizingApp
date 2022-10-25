@@ -28,6 +28,8 @@ class PrioritizingScreen extends StatelessWidget {
         int maxwidth = MediaQuery.of(context).size.width.toInt();
         double height = MediaQuery.of(context).size.height;
         double width = MediaQuery.of(context).size.width;
+        print(width);
+        print(height);
         var cubic = ActivateCubic.get(context);
         return Scaffold(
           body: Stack(
@@ -45,7 +47,7 @@ class PrioritizingScreen extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.only(
                         left: width / 41.27,
-                        right: width / 19.27,
+                        right: width / 20.66,
                         top: height / 27.51,
                         bottom: height / 27.51),
                     child: Form(
@@ -152,7 +154,7 @@ class PrioritizingScreen extends StatelessWidget {
                           ),
                           Padding(
                             padding: EdgeInsets.only(
-                                left: width / 13.09, right: width / 26.2),
+                                left: width / 13.09,  ),
                             child: Row(
                               children: <Widget>[
                                 Container(
@@ -191,7 +193,7 @@ class PrioritizingScreen extends StatelessWidget {
                                     onPressed: () {
                                       cubic.ChangeBottom(2);
                                     },
-                                    child: Text('High'),
+                                    child: Text('High',),
                                     style: ElevatedButton.styleFrom(
                                       primary: cubic.selectedIndex == 2
                                           ? Colors.blueGrey

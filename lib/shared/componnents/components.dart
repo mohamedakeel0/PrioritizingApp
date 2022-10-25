@@ -683,15 +683,18 @@ Widget buildToDolist(
         ],
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            buildItemperson(
-                height, width, context, 2, 'High priority', cubic.High.length),
-            buildItemperson(height, width, context, 1, 'Medium priority',
-                cubic.Medium.length),
-            buildItemperson(
-                height, width, context, 0, 'Low priority', cubic.low.length),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: 10.0),
+          child: Column(
+            children: [
+              buildItemperson(
+                  height, width, context, 2, 'High priority', cubic.High.length),
+              buildItemperson(height, width, context, 1, 'Medium priority',
+                  cubic.Medium.length),
+              buildItemperson(
+                  height, width, context, 0, 'Low priority', cubic.low.length),
+            ],
+          ),
         ),
       ),
     );
